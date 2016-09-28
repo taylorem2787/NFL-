@@ -1,0 +1,27 @@
+#container{
+	margin: 0 auto;
+	width: 960px;
+}
+
+body{
+	background-image: url("../images/headerIMG.png");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center top; 
+    background-color: black;
+}
+
+
+
+.transparentBG p{
+ 	color: white;
+}
+
+.card{
+	min-height: 500px;
+	padding: 10px;
+}
+
+.indexHeader{
+	color: #FFF;
+}
