@@ -1,16 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<!-- JQuery -->
-	<script type="text/javascript" src="assets/bower_components/dist/jquery.js"></script>
+	<!-- jquery -->
+	<script src="https://code.jquery.com/jquery.js"></script>
 	<!-- Materialize CSS-->
-	<link rel="stylesheet" type="text/css" href="assets/bower_components/bin/materializze.css">
+	<link rel="stylesheet" type="text/css" href="assets/bower_components/materialize/bin/materialize.css">
 	<!-- Materialize JS -->
-	<link rel="stylesheet" type="text/css" href="assets/bower_components/bin/materializze.css">
+	<script type="text/javascript" src="assets/bower_components/materialize/bin/materialize.js"></script>
 	<!-- Style -->
 	<link rel="stylesheet" href="assets/css/style.css">
 	<!-- Firebase -->
 	<script src="https://www.gstatic.com/firebasejs/live/3.0/firebase.js"></script>
+	<!-- Oauth -->
+	<script type="text/javascript" src="assets/javascript/oauth.js"></script>
+	<!-- sha1 -->
+	<script type="text/javascript" src="assets/javascript/sha1.js"></script>
+	<!-- main code -->
+	<script type="text/javascript" src="assets/javascript/app.js"></script>
+
 	<meta charset="UTF-8">
 	<title>NFL Teams</title>
 </head>
@@ -22,49 +29,119 @@
          <img class="nfl" src="assets/images/nflLogo.png">
 	            <div class="card-body">
 
-		            <img src="assets/images/ben3.png" class="teams" id="cincinnati-bengals">
-		            <img src="assets/images/brn3.png" class="teams" id="cleveland-browns">
-		            <img src="assets/images/rav3.png" class="teams" id="baltimore-ravens">
-		            <img src="assets/images/ste3.png" class="teams" id="pittsburgh-steeler">
-				
-		            <img src="assets/images/bea3.png" class="teams" id="chicago-bears">
-		            <img src="assets/images/lio3.png" class="teams" id="detroit-lions">
-		            <img src="assets/images/pac3.png" class="teams" id="green-bay-packers">
-		            <img src="assets/images/vik3.png" class="teams" id="minnesota-vikings">
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		            	<img src="assets/images/ben3.png" class="teams" id="cincinnati-bengals">
+		            <!-- </button> -->
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		            	<img src="assets/images/brn3.png" class="teams" id="cleveland-browns">
+					<!-- </button> -->
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		            	<img src="assets/images/rav3.png" class="teams" id="baltimore-ravens">
+		            <!-- </button> -->
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		            	<img src="assets/images/ste3.png" class="teams" id="pittsburgh-steeler">
+					<!-- </button> -->
 
-		             <img src="assets/images/bil3.png" class="teams" id="buffalo-bills">
-		             <img src="assets/images/dol3.png" class="teams" id="miami-dolphins">
-		             <img src="assets/images/pat3.png" class="teams" id="new-england-patriots">
-		             <img src="assets/images/jet3.png" class="teams" id="new-york-jets">
-				
-		             <img src="assets/images/cow3.png" class="teams" id="dallas-cowboys">
-		             <img src="assets/images/gia3.png" class="teams" id="new-york-giants">
-		             <img src="assets/images/eag3.png" class="teams" id="philadelphia-eagles">
-		             <img src="assets/images/red3.png" class="teams" id="washington-redskins">
 
-		             <img src="assets/images/tex3.png" class="teams" id="houston-texans">
-		             <img src="assets/images/col3.png" class="teams" id="indianapolis-colts">
-		             <img src="assets/images/jag3.png" class="teams" id="jacksonville-jaguars">
-		             <img src="assets/images/tit3.png" class="teams" id="tennessee-titans">
-				
-		             <img src="assets/images/fal3.png" class="teams" id="atlanta-falcons">
-		             <img src="assets/images/pan3.png" class="teams" id="carolina-panthers">
-		             <img src="assets/images/sai3.png" class="teams" id="new-orleans-saints">
-		             <img src="assets/images/buc3.png" class="teams" id="tampa-bay-buccaneers">
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		            	<img src="assets/images/bea3.png" class="teams" id="chicago-bears">
+		            <!-- </button> -->
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		            	<img src="assets/images/lio3.png" class="teams" id="detroit-lions">
+		            <!-- </button> -->
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		          		<img src="assets/images/pac3.png" class="teams" id="green-bay-packers">
+		            <!-- </button> -->
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		            	<img src="assets/images/vik3.png" class="teams" id="minnesota-vikings">
+					<!-- </button> -->
 
-		             <img src="assets/images/bro3.png" class="teams" id="denver-broncos">
-		             <img src="assets/images/chi3.png" class="teams" id="kansas-city-chiefs">
-		             <img src="assets/images/rai3.png" class="teams" id="oakland-raiders">
-		             <img src="assets/images/cha3.png" class="teams" id="san-diego-chargers">
-				
-		             <img src="assets/images/car3.png" class="teams" id="arizona-cardinals">
-		             <img src="assets/images/49s3.png" class="teams" id="san-francisco-49ers">
-		             <img src="assets/images/sea3.png" class="teams" id="seattle-seahawks">
-		             <img src="assets/images/ram3.png" class="teams" id="los-angeles-rams">
+
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/bil3.png" class="teams" id="buffalo-bills">
+		            <!-- </button> -->
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/dol3.png" class="teams" id="miami-dolphins">
+		            <!-- </button> -->
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/pat3.png" class="teams" id="new-england-patriots">
+		            <!-- </button> -->
+		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/jet3.png" class="teams" id="new-york-jets">
+					<!-- </button> -->
+
+
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/cow3.png" class="teams" id="dallas-cowboys">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/gia3.png" class="teams" id="new-york-giants">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/eag3.png" class="teams" id="philadelphia-eagles">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/red3.png" class="teams" id="washington-redskins">
+					 <!-- </button> -->
+
+
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/tex3.png" class="teams" id="houston-texans">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/col3.png" class="teams" id="indianapolis-colts">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/jag3.png" class="teams" id="jacksonville-jaguars">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/tit3.png" class="teams" id="tennessee-titans">
+		             <!-- </button> -->
+
+
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/fal3.png" class="teams" id="atlanta-falcons">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/pan3.png" class="teams" id="carolina-panthers">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/sai3.png" class="teams" id="new-orleans-saints">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/buc3.png" class="teams" id="tampa-bay-buccaneers">
+					 <!-- </button> -->
+
+
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/bro3.png" class="teams" id="denver-broncos">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/chi3.png" class="teams" id="kansas-city-chiefs">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/rai3.png" class="teams" id="oakland-raiders">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/cha3.png" class="teams" id="san-diego-chargers">
+					 <!-- </button> -->
+
+
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/car3.png" class="teams" id="arizona-cardinals">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/49s3.png" class="teams" id="san-francisco-49ers">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/sea3.png" class="teams" id="seattle-seahawks">
+		             <!-- </button> -->
+		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
+		             	<img src="assets/images/ram3.png" class="teams" id="los-angeles-rams">
+		             <!-- </button> -->
 	        </div> <!-- BODY END -->
 	    </div> <!-- COL END -->
 	</div> <!-- ROW END -->
 </div>
-<script type="text/javascript" src="assets/javascript/app.js"></script>	
 </body>
 </html>

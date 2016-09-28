@@ -56,3 +56,8 @@ img{
 	margin-right: 1%;
 	margin-left: 1%;
 }
+button {
+	background: none;
+	border: none;
+	color: none;
+}
