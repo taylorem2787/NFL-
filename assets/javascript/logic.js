@@ -4,13 +4,37 @@ $( document ).ready(function() {
   // Seat Geek Global variables
   var URL = "";
   var baseURL = "https://api.seatgeek.com/2/events?performers.slug="; 
-  var performer = "";  
+  var performer = "";
+  var zipCode;
+  var zipCodeArray = [];
+  var date;
+  var event;
+  var stadium;
+  var cityAndState;
+  var headerDisplay;
+  var headerDisplayArray = [];
+ 
   // OpenWeather Global variables
   var location = [];
-  var weather = [];
+  var city;
+  var windSpeed;
+  var humidity;
+  var temperature;
+  var weather;
+  var weatherArray = [];
 
 
-  // On click event to trigger dynamic
+
+  // On click event to trigger default display
+  $( "#home" ).click(function() {
+    $("#buttonHolder").show();
+    $("#dynamicDisplay").hide();
+
+  }); // End of on click event for home button
+
+
+
+  // On click event to trigger dynamic display
   $( ".teams" ).click(function() { 
 
     // This replaces the display of buttons with the accordion
@@ -43,39 +67,33 @@ $( document ).ready(function() {
 
       // For loop that creates a display of ten events
       for(var i = 0; i < results.length; i++) {
+
+        // This is storing the zipcode of each event stadium
+        zipCode = results[i].venue.postal_code;
         
+        // Pushing all the zipcode events into an array for future use
+        zipCodeArray.push(zipCode);
 
-        // List item created
-        var li = $("<li>");
+        // console log the zipcode array
+        console.log(zipCodeArray);
 
-        // div with divHeader class is created for accordion
-        var divHeader = $("<div style = 'color:black;'>");
-        divHeader.attr("class", "collapsible-header");
+        // Store information globally for future use
+        date = results[i].datetime_local;
+        event = results[i].title;
+        stadium = results[i].venue.name;
+        cityAndState = results[i].venue.display_location;
 
-        // divHeader is populated with information from api call including
-        // date, event name, and location
-        divHeader.text(results[i].datetime_local + " " + results[i].title + " " + results[i].venue.name + " " + results[i].venue.display_location);
+        // Push info to one variable
+        headerDisplay = "date: " + date + " event: " + event + " stadium: " + stadium + " location: " +cityAndState;
 
-        // div with divBody class is created for accordion
-        var divBody = $("<div>");
-        divBody.attr("class", "collapsible-body");
 
-        // p with no text is created
-        var p = $("<p>Say Something</p>");
+        // Push single variable into an array
+        headerDisplayArray.push(headerDisplay);
 
-        // divHeader is attached to li
-        li.append(divHeader);
+        // Console log the array
+        console.log(headerDisplayArray);
 
-        // divBody is attached to li
-        li.append(divBody);
-
-        // p is attached to divBody
-        divBody.append(p);
-
-        // li is attached to the html id tag dynamicDisplay
-        $("#dynamicPanel").append(li);
-
-          // Console log everything to make sure it's all working!
+          // CONSOLE LOG EVERYTHING TO MAKE SURE IT'S WORKING
           // console.log(results[i].title);
           // console.log(results[i].datetime_local);
           // console.log(results[i].venue.city);
@@ -104,18 +122,12 @@ $( document ).ready(function() {
       // END OF SEAT GEEK API
 // ----------------------------------------------------------------------------------------------------
       // START OF OPEN WEATHER API
-      
-      // push into the location array
-      location[i] = results[i].venue.postal_code;
-
-      // console log it
-      console.log(location);
 
       // This is our API Key
       var WeatherAPIkey = "08b0500863b3dfb3863a05215f613d59";
 
-        // Here we are building the URL we need to query the database
-        var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + location[i] + "&units=imperial&appid=" + WeatherAPIkey;
+      // Here we are building the URL we need to query the database
+      var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + zipCode[i] + "&units=imperial&appid=" + WeatherAPIkey;
 
         // Here we run our AJAX call to the OpenWeatherMap API
         $.ajax({url: queryURL, method: 'GET'})
@@ -130,25 +142,68 @@ $( document ).ready(function() {
         console.log(response);
 
         // Transfer content to HTML
-        var city = response.name;
-        var windSpeed = response.wind.speed;
-        var humidity = response.main.humidity;
-        var temperature = response.main.temp;
+        city = response.name;
+        windSpeed = response.wind.speed;
+        humidity = response.main.humidity;
+        temperature = response.main.temp;
 
-        // Log the data in the console as well
-        console.log("Wind Speed: " + response.wind.speed);
-        console.log("Humidity: " + response.main.humidity);
-        console.log("Temperature (F): " + response.main.temp);
+        weather = "city: " + city + " windSpeed: " + windSpeed + " humidity: " + humidity + " temperature: " + temperature;
+
+        // Log the weather in the console as well
+        console.log(weather);
+        
+
+        weatherArray.push(weather)
+
+        // Log the array
+        console.log(weatherArray);
 
         }); // End of .done function for Open Weather Api
+      
+// CREATING THE DISPLAY -----------------------------------------------------------------
+          // List item created
+          var li = $("<li>");
+
+          // div with divHeader class is created for accordion
+          var divHeader = $("<div style = 'color:black;'>");
+          divHeader.attr("class", "collapsible-header");
+
+          // divHeader is populated with information from api call including
+          // date, event name, and location
+          divHeader.text(headerDisplayArray[i]);
+
+          // div with divBody class is created for accordion
+          var divBody = $("<div>");
+          divBody.attr("class", "collapsible-body");
+
+          // divText with no text is created
+          var divText = $("<p>");
+          
+          // Here we are inserting the weather information into the body div of the accordion
+          divText.text("heyyyyyy" + weatherArray[i]);
+
+
+          // EVERYTHING IS BEING POPULATED HERE
+          // divHeader is attached to li
+          li.append(divHeader);
+
+          // divBody is attached to li
+          li.append(divBody);
+
+          // p is attached to divBody
+          divBody.append(divText);
+
+          // li is attached to the html id tag dynamicDisplay
+          $("#dynamicPanel").append(li);
+// END OF CREATING THE DISPLAY ---------------------------------------------------------------
 
 
       }; // End of for loop for Seat Geek Api
-    
+
 
     }); // End of .done function for Seat Geek Api
-  
-  
+     
+
   }); // This is the end of the on click function
 
 
