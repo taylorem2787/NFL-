@@ -8,9 +8,9 @@ var display;
 $(".teams").on("click", function(this){
 	display = $()
 	console.log(display);
-
-var URL = "";
 });
+var URL = "";
+
 
 var baseURL = "https://api.seatgeek.com/2/events?performers.slug="; // This is looking at the main URL for the seatgeek api
 var performer = "";  // I think that this is the event to be searched for

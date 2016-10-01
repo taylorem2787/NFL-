@@ -16,8 +16,8 @@
 	<!-- sha1 -->
 	<script type="text/javascript" src="assets/javascript/sha1.js"></script>
 	<!-- main code -->
-	<script type="text/javascript" src="assets/javascript/app.js"></script>
-
+	<!-- <script type="text/javascript" src="assets/javascript/app.js"></script> -->
+	
 	<meta charset="UTF-8">
 	<title>NFL Teams</title>
 </head>
@@ -27,8 +27,8 @@
       <div class="col s12 m6">
         <div class="card-panel">
          <img class="nfl" src="assets/images/nflLogo.png">
-	            <div class="card-body">
-
+	            <div class="card-body" id="buttonHolder">
+					
 		            <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
 		            	<img src="assets/images/ben3.png" class="teams" id="cincinnati-bengals">
 		            <!-- </button> -->
@@ -139,9 +139,25 @@
 		             <!-- <button class="waves-effect waves-light btn modal-trigger"> -->
 		             	<img src="assets/images/ram3.png" class="teams" id="los-angeles-rams">
 		             <!-- </button> -->
+
+					</div>
 	        </div> <!-- BODY END -->
+
+				<!-- Modal Structure -->
+					<div id="dynamicDisplay" style="display:none; align-self:center;">
+						<ul class="collapsible" data-collapsible="accordion" id="dynamicPanel">
+				  		</ul>
+					</div>
+
 	    </div> <!-- COL END -->
 	</div> <!-- ROW END -->
-</div>
+	 
+     
+
+
+<!-- <script type="text/javascript" src="assets/javascript/app.js"></script> -->
+<!-- logic.js -->
+<script type="text/javascript" src="assets/javascript/logic.js"></script>
 </body>
+
 </html>

@@ -11,8 +11,9 @@ html, body {
     overflow: auto;
 }
 
-.container {
+body{
 	background-image: url(../images/background2.png);
+	
   	/*background-image: url(../images/background3.png) !important;*/
     background-size: cover !important;
     background-repeat: no-repeat !important;
@@ -21,12 +22,16 @@ html, body {
 	height: 100% !important;
 	text-align: center;
 	margin: 0 auto;
+
 }
+
+	
 
 body > .seasons {
 	background-image: url(../images/background3.jpg) !important;
     background-size: cover !important;
     background-repeat: no-repeat !important;
+    position: fixed; 
 }
 
 .card-panel, input {
@@ -35,6 +40,10 @@ body > .seasons {
 
     margin-top: 10%;
 }
+.card-panel{
+	margin-left:50%;
+	margin-top:30%;
+}
 
 .card-body {
 	text-align: center;
@@ -42,19 +51,23 @@ body > .seasons {
 	padding: 0%;
 	margin-right: 20%;
 	margin-left: 20%;
+
 }
 
 .nfl{
 	width: 147px;
 	height: 150px;
-	margin-bottom: 1%;
+	margin-bottom:5%;
 }
 
 img{
+	
 	width: 101px;
 	height: 98px;
 	margin-right: 1%;
 	margin-left: 1%;
+	/*float:left;*/
+
 }
 button {
 	background: none;
