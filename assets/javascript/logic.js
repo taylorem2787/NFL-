@@ -69,8 +69,8 @@ $( document ).ready(function() {
       for(var i = 0; i < results.length; i++) {
 
         // This is storing the zipcode of each event stadium
-        zipCode = results[i].venue.postal_code;
-        
+        zipCode = results[i].venue.display_location;
+        zipCode;
         // Pushing all the zipcode events into an array for future use
         zipCodeArray.push(zipCode);
 
@@ -127,10 +127,10 @@ $( document ).ready(function() {
       var WeatherAPIkey = "08b0500863b3dfb3863a05215f613d59";
 
       // Here we are building the URL we need to query the database
-      var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + zipCode[i] + "&units=imperial&appid=" + WeatherAPIkey;
+      var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + zipCodeArray[i] + "&units=imperial&appid=" + WeatherAPIkey;
 
         // Here we run our AJAX call to the OpenWeatherMap API
-        $.ajax({url: queryURL, method: 'GET'})
+        $.ajax({url: queryURL, method: 'GET', async: false})
 
         // We store all of the retrieved data inside of an object called "response"
         .done(function(response) {
@@ -159,7 +159,8 @@ $( document ).ready(function() {
         console.log(weatherArray);
 
         }); // End of .done function for Open Weather Api
-      
+
+
 // CREATING THE DISPLAY -----------------------------------------------------------------
           // List item created
           var li = $("<li>");
@@ -180,7 +181,7 @@ $( document ).ready(function() {
           var divText = $("<p>");
           
           // Here we are inserting the weather information into the body div of the accordion
-          divText.text("heyyyyyy" + weatherArray[i]);
+          divText.text(weatherArray[i]);
 
 
           // EVERYTHING IS BEING POPULATED HERE
@@ -195,7 +196,7 @@ $( document ).ready(function() {
 
           // li is attached to the html id tag dynamicDisplay
           $("#dynamicPanel").append(li);
-// END OF CREATING THE DISPLAY ---------------------------------------------------------------
+// END OF CREATING THE DISPLAY ---------------------------------------------------------------      
 
 
       }; // End of for loop for Seat Geek Api
@@ -208,7 +209,6 @@ $( document ).ready(function() {
 
 
 }); // This is the end of the document ready function
-
 
 
 
